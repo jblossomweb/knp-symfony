@@ -1,0 +1,50 @@
+extends ../base
+block title
+  | Genus #{ name }
+block body
+
+  
+
+  h2.genus-name #{ name }
+  .sea-creature-container
+    .genus-photo
+    .genus-details
+      dl.genus-details-list
+        dt Subfamily:
+        dd Octopodinae
+        dt Known Species:
+        dd 289
+        dt Fun Fact:
+        dd Octopuses can change the color of their body in just three-tenths of a second!
+
+  #js-notes-wrapper
+
+  //- .notes-container
+  //-   h2.notes-header Notes
+  //-   div
+  //-     i.fa.fa-plus.plus-btn
+  //- section#cd-timeline
+
+  //-   each note in notes
+  //-     .cd-timeline-block
+  //-       .cd-timeline-img
+  //-         img.img-circle(src="#{ $view['assets']->getUrl($note['avatarUri']) }", alt="#{ $note['username'] }", title="#{ $note['username'] }")
+  //-     .cd-timeline-content
+  //-       h2
+  //-         a(href="#") #{ note.username }
+  //-         p #{ note.note }
+  //-         span.cd-date #{ note.date }
+
+  h5.notes-header
+    a(href="#{ $view['router']->path('genus_show_notes', ['genusName'=> $name]) }") (see notes JSON)
+
+block append javascripts
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/react/0.14.3/react-dom.js")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js")
+  script(type="text/babel", src="#{ $view['assets']->getUrl('js/notes.react.js') }")
+  script(type="text/babel").
+    ReactDOM.render(
+      <NoteSection url="#{ $view['router']->path('genus_show_notes', ['genusName'=> $name]) }" />,
+      document.getElementById('js-notes-wrapper')
+    );

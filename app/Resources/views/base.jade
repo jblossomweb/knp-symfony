@@ -1,0 +1,34 @@
+doctype html
+html
+  head
+    meta(charset="UTF8")
+    title
+      block title
+    block stylesheets
+      link(rel="stylesheet", href="#{ $view['assets']->getUrl('bower_components/bootstrap/dist/css/bootstrap.min.css') }")
+      link(rel="stylesheet", href="#{ $view['assets']->getUrl('bower_components/font-awesome/css/font-awesome.min.css') }")
+      link(rel="stylesheet", href="#{ $view['assets']->getUrl('css/styles.css') }")
+    link(rel="icon", type="image/x-icon", href="#{ $view['assets']->getUrl('favicon.ico') }")
+  body
+    .search-bar
+      form.js-sea-search.sea-search(method="GET", action="")
+        input.search-input(type="search", name="q", placeholder="Search Sea Creatures", autocomplete="off")
+    header.header
+      img.logo-icon(src="#{ $view['assets']->getUrl('images/aquanote-logo.png') }")
+      h1.logo AquaNote
+      ul.navi
+        li.search
+          a.js-header-search-toggle(href="#")
+            i.fa.fa-search
+        li
+          a(href="#") Login
+    block body
+    .footer
+      p.footer-text
+        | Made with
+        span.heart <3
+        a(href="https://knpuniversity.com", target="_blank") KnpUniversity
+    block javascripts
+      //- replace jQuery with AngularBootstrap if Angular is used
+      script(src="#{ $view['assets']->getUrl('bower_components/jquery/dist/jquery.min.js') }")
+      script(src="#{ $view['assets']->getUrl('js/main.js') }")

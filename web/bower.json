@@ -1,0 +1,18 @@
+{
+  "name": "foo",
+  "description": "foo",
+  "main": "",
+  "authors": [
+    "John Blossom"
+  ],
+  "license": "MIT",
+  "homepage": "",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
